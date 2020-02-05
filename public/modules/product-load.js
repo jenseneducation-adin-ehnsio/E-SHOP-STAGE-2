@@ -43,12 +43,40 @@ const addPrice = (product, products, i) => {
 };
 
 // Appends Button to product
-const addButton = (product, products, i) => {
+const addButton = async (product, products, i) => {
   let productButton = document.createElement("button");
-  productButton.innerHTML = "Add to cart";
   productButton.id = "button-" + i;
+  productButton.innerHTML = "Add to cart";
+  checkIfInCart(i); // Changes innerHTML if already added
   productButton.addEventListener("click", () => {
     addToCart(products[i].id); // Gives the button an eventlistener to add on click
   });
   product.appendChild(productButton);
+};
+
+// Changes innerHTML of button if it exists in cart
+const checkIfInCart = async productId => {
+  let cartId = await fetchCartId(productId);
+  if (cartId) {
+    document.querySelector("#button-" + cartId).innerHTML =
+      "Product already in cart";
+  }
+};
+
+// Returns the cartId if it exists
+const fetchCartId = async i => {
+  let id;
+  await fetch("/cart")
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      if (data.data[i]) {
+        id = data.data[i].id;
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+    });
+  return id;
 };
