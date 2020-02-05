@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  text-align: center;
+  padding: 30px;
+  background-color: rosybrown;
+  width: 100%;
+}
+
+footer {
+  text-align: right;
+  margin: 40px;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+}
+
+body {
+  background-color: rgb(253, 249, 245);
+  max-width: 1300px;
+  margin: auto;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .product-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .product-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cart-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.product,
+.item {
+  display: flex;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.product {
+  box-shadow: 4px 4px 10px 0px rgba(0, 0, 0, 0.26);
+  border: 1px solid rgb(192, 180, 180, 0.5);
+  flex-direction: column;
+  width: 250px;
+  height: 370px;
+  margin: 20px;
+}
+
+.item {
+  border-bottom: 1px solid rgba(179, 173, 173, 0.575);
+  padding-bottom: 10px;
+  margin-bottom: 0;
+}
+
+.product img {
+  max-width: 100%;
+}
+
+.item img {
+  max-width: 30vw;
+  max-height: 150px;
+}
+
+.product h2,
+.item h2 {
+  color: rgb(71, 96, 206);
+  margin: 10px auto 5px 0;
+  font-size: calc(0.7em + 1vw);
+}
+
+.item h2 {
+  padding-left: 10px;
+}
+
+.product h3,
+.item h3 {
+  margin: auto 0 10px auto;
+  font-size: calc(0.5em + 1vw);
+}
+
+.product button,
+.item button {
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 700;
+}
+
+.product button {
+  background-color: rgb(54, 202, 91);
+  width: 100%;
+  padding: 10px;
+}
+
+.item button {
+  background-color: sandybrown;
+  width: 20px;
+  height: 20px;
+  font-size: 0.7em;
+}
+
+.product button:hover,
+.item button:hover {
+  cursor: pointer;
+}
+
+.product button:focus,
+.item button:focus {
+  outline: none;
+}

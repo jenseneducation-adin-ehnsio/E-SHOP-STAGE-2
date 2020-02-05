@@ -7,6 +7,8 @@ const port = process.env.PORT || 7000;
 
 app.use("/", endpoints); // Uses endpoints from endpoints.js
 
+app.use(express.static("public"));
+
 // LISTENS AT PORT 7000 AND INITIATES DATABASES
 app.listen(port, () => {
   console.log("Server started on port: ", port);

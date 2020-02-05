@@ -48,7 +48,7 @@ router.post("/cart/add/:id", async (req, res) => {
         message: "Product already in cart",
         data: item
       };
-      res.status(404).send(message); // Sends 404, item already in cart
+      res.send(message); // Sends 404, item already in cart
     }
   }
 });
